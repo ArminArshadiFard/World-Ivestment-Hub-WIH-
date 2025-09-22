@@ -1,6 +1,4 @@
-# World-Ivestment-Hub-WIH-
-
-# Investment Options
+# World Ivestment Hub (WIH)
 
 A simple Django website (using SQLite) that lets users learn about different investment options. Think of it as an educational / informational platform, not real financial advice.
 
