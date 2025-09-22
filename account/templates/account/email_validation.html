@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/js/bootstrap/bootstrap.min.css">
+    {% include "home/css.html" %}
+    <style>
+
+        .snow {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            top: -10px;
+        }
+
+        .item {
+            position: relative;
+        {#float: right;#}
+        }
+
+
+        .item h2 {
+            text-align: center;
+            position: absolute;
+            line-height: 50px;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        svg {
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        }
+
+        .circle_animation {
+            stroke-dasharray: 440; /* this value is the pixel circumference of the circle */
+            stroke-dashoffset: 440;
+            transition: all 1s linear;
+        }
+
+        .hero {
+
+            background-size: 200% 99% !important;
+            background-position-x: 32% !important;
+            background-position-y: 0 !important;
+        }
+
+        @media only screen and (min-width: 768px) {
+
+
+            .hero {
+                background-size: 100% 99% !important;
+                background-position-x: 50px !important;
+                background-position-y: 0 !important;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body style="font-family: auto">
+
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg3">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+        <form method="post" id="caller">
+            {% csrf_token %}
+            <input type="hidden" name="caller">
+        </form>
+        <form method="post">
+            {% csrf_token %}
+            <section class="sec-padding" style="padding-top: 25px!important;">
+                <div class="container">
+
+                    <div class="col-md-12 text-center"><h3>Please enter the validation code sent to your email.</h3>
+                    </div>
+                    {% if error %}
+                        <h5 class="text-danger text-center">{{ error }}</h5>
+                    {% endif %}
+                    <div class="clearfix"></div>
+                    <div class="form-body bg-light">
+                        <div class="row">
+                            <br>
+                            <div class="col-md-12 text-center">
+                                <input
+                                        class="input-1 my_input" type="number" placeholder="validation code"
+                                        name="code">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-dark btn-medium" type="submit"
+                                        style="font-family: auto;font-size: 22px;line-height: .8;border-radius: 14px;border: 3px solid #0d99ff;">
+                                    Confirm
+                                </button>
+                                <button class="btn btn-danger btn-medium" type="button" id="resend"
+                                        style="font-family: auto;font-size: 22px;line-height: .8;border-radius: 14px;border: 3px solid #0d99ff;">
+                                    resend email
+                                </button>
+                                <div class="item html btn">
+                                    <div class="item html btn">
+                                        <h2 id="timer-h" style="width: 67%!important;">180</h2>
+                                        <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                                            <g>
+                                                <title>Layer 1</title>
+                                                <circle id="circle" class="circle_animation" r="20" cy="25" cx="25"
+                                                        stroke-width="8" stroke="#0d99ff" fill="none"
+                                                        style="stroke-dashoffset: 440px;"></circle>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!--end form body-->
+                </div>
+            </section>
+        </form>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+
+<script>
+    $(document).ready(function () {
+        $("#resend").hide()
+        setTimeout(function () {
+
+            var time = 1;
+            /* how long the timer will run (seconds) */
+            var initialOffset = '440';
+            var i = 180
+            var j = 180
+
+
+            /* Need initial run as interval hasn't yet occured... */
+            $('.circle_animation').css('stroke-dashoffset', initialOffset - (1 * (initialOffset / 120)));
+
+            var interval = setInterval(function () {
+                $('#timer-h').text(i);
+                if (i == time) {
+                    clearInterval(interval);
+                    $(".item").hide()
+                    $("#resend").show()
+                    return;
+                }
+                $('.circle_animation').css('stroke-dashoffset', initialOffset - ((j - 1) * (initialOffset / 180 / 3.5)));
+                i--;
+                j--;
+            }, 1000);
+
+        }, 0)
+        $("#resend").click(function () {
+            $("#caller").submit()
+        })
+    })
+
+</script>
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+</body>
+</html>

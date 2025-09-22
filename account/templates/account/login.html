@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load operation %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    {% include "home/css.html" %}
+</head>
+<body style="font-family: auto">
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg3">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <form method="post">
+            {% csrf_token %}
+            <section class="sec-padding" style="padding-top: 25px!important;">
+                <div class="container">
+
+                    <div class="col-md-12 text-center"><h3>login to world investment hub
+                    </h3></div>
+                    {% for i in login_form.errors.values %}
+                        <h5 class="text-danger text-center">{{ i }}</h5>
+                    {% endfor %}
+                    <div class="clearfix"></div>
+                    <div class="form-body bg-light">
+                        <div class="row">
+                            <br>
+                            <div class="col-md-12 text-center">
+                                <h4 style="margin-top: 10px">your email</h4>
+                                {{ login_form.email }}
+                                <h4 style="margin-top: 10px">password</h4>
+                                {{ login_form.password }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <br>
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-dark btn-medium" type="submit"
+                                        style="font-family: auto;font-size: 22px;line-height: .8;border-radius: 14px;border: 3px solid #0d99ff;">
+                                    Login
+                                </button>
+                                <button class="btn btn-danger btn-medium" type="button"
+                                        onclick="window.location.href='{% url "register" %}'"
+                                        style="font-family: auto;font-size: 22px;line-height: .8;border-radius: 14px;border: 3px solid #0d99ff;">
+                                    Sign up
+                                </button>
+                                <br>
+{#                                <p style="margin-top: 10px"><a href="{% url "password_reset" %}">forgot your password?</a></p>#}
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!--end form body-->
+                </div>
+            </section>
+        </form>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+</body>
+</html>
