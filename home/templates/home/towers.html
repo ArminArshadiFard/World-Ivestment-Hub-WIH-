@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    {% include "home/css.html" %}
+    <style>
+        p {
+            font-size: 26px;
+            line-height: 33px;
+        }
+
+        input[type='radio'] {
+            height: 21px;
+            width: 20px;
+            vertical-align: sub;
+        }
+    </style>
+</head>
+<body style="font-family: auto">
+
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg2">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <section class="sec-bpadding-2" style="margin-top: 100px">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">Residential towers Project
+                            </h2>
+                            <div class="ce-title-line align-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br/>
+                        <div class="col-lg-6 col-md-12 margin-bottom"><img src="/static/images/towers.webp" alt=""
+                                                                           class="img-responsive"/></div>
+                        <div class="col-lg-6 col-md-12 padding-left-6">
+                            <p>
+                                Big Housemaking Design Based on the idea of using population potential for the
+                                applicable countries of the plan and resettlement over Four thousand people intended,
+                                This great project is intended with the approach of the country's population migration
+                                and the use of the acceptable country in economic and cultural growth under population
+                                potential thinking, The project is for accepting countries with a free cultural space
+                                and with the high ranking of people's lives, This project does not require much
+                                investment from the receiving countries based on hub protocols, And based on the
+                                doctrine and hub's theory, it will be exploited in four years without the need for much
+                                investment, The project's profit for the hub and the receiving country will be $ 5
+                                billion for four years
+                            </p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <label style="font-size: 18px">
+                                    <input type="radio" name="confirm" required> &nbsp;&nbsp;I want to buy shares of
+                                    towers project
+                                </label>
+                                <br/>
+                                <br/>
+                                <button type="submit" class="btn btn-dark btn-round"
+                                        style="color: #000;background-color: #78eaff;font-size: 21px">
+                                    Next level
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+</body>
+</html>

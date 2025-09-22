@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load operation %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    <link rel="stylesheet" href="{% version_css "css/loader.css" %}">
+    {% include "home/css.html" %}
+    <style>
+        p {
+            font-size: 26px;
+            line-height: 33px;
+        }
+
+        input[type='radio'] {
+            height: 21px;
+            width: 20px;
+            vertical-align: sub;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+
+    </style>
+</head>
+<body style="font-family: auto">
+<div id="loader"></div>
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg2">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <section class="sec-bpadding-2" style="margin-top: 100px">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">404!
+                            </h2>
+                            <div class="ce-title-line align-left"><h4>Page Not found</h4></div>
+                            <p><a style="color: blue" href="/">&leftarrow; get back to home</a></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+<script>
+    $('#saving').keyup(function () {
+        var Input = this.value;
+        if (Input === "") {
+        } else {
+            document.getElementById("payment").innerText = "Pay " + Input + " $"
+        }
+    });
+</script>
+<script>
+    $(document.getElementsByTagName('form')).submit(function () {
+        document.getElementById("loader").style.display = "block";
+        document.getElementsByTagName("body")[0].style.pointerEvents = "none";
+        document.getElementsByTagName("body")[0].style.opacity = ".6";
+    });
+</script>
+</body>
+</html>

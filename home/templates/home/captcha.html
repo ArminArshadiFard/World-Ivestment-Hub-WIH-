@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #id_captcha_1 {
+            max-width: 100px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {% if captcha %}
+        <h1>
+            ashkan
+        </h1>
+    {% endif %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+
+</body>
+</html>

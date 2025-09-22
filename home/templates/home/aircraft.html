@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    {% include "home/css.html" %}
+    <style>
+        p {
+            font-size: 20px;
+            line-height: 33px;
+        }
+
+        input[type='radio'] {
+            height: 21px;
+            width: 20px;
+            vertical-align: sub;
+        }
+    </style>
+</head>
+<body style="font-family: auto">
+
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg2">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <section class="sec-bpadding-2" style="margin-top: 100px">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">Aircraft Project
+                            </h2>
+                            <div class="ce-title-line align-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br/>
+                        <div class="col-lg-6 col-md-12 margin-bottom"><img src="/static/images/aircraft.webp" alt=""
+                                                                           class="img-responsive"/></div>
+                        <!--end item-->
+                        <div class="col-lg-6 col-md-12 padding-left-6">
+                            <p>
+                                Today's world is in the inflammation of fossil fuels, and the inability of countries to
+                                have easy access to this fuel, this has caused problems in global transportation, And
+                                fossil fuels have caused environmental pollution, The construction of a plane with a
+                                atomic mini -engine is a hub for a plane of over 2400 km / h and the 60000foot
+                                flight ceiling, Hubs can keep the aircraft in two types and ten models, while
+                                maintaining the security of its design, with the participation of interested countries
+                                and accepting hub protocols in two types and ten models, Hub invites the people of the
+                                world to participate in the construction of the aircraft, which is a turning point in
+                                the construction of the world aircraft And invites countries that are interested in
+                                world peace in this production.
+                                <br>
+                                <br>
+                                Explanation: Thanks to some experts and scientists who sent their opinions in our guide
+                                after reading this site.
+                                It is necessary to explain that the initial designs of the airplanes are checked and
+                                analyzed by computer and even the construction details map is available on the site.
+                                This site is not affiliated with any airplane company at the moment and operates
+                                independently because the system of making this airplane is completely different from
+                                the current airplanes.
+                                This site will start construction if financed by companies and individuals and even
+                                countries that are interested in creating such a project.
+                                The construction of these types of airplanes will be a great revolution in the aviation
+                                industry of the world.
+                            </p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <label style="font-size: 18px">
+                                    <input type="radio" name="confirm" required> &nbsp;&nbsp;I want to buy shares of
+                                    aircraft project
+                                </label>
+                                <br/>
+                                <br/>
+                                <button type="submit" class="btn btn-dark btn-round"
+                                        style="color: #000;background-color: #78eaff;font-size: 21px">
+                                    Next level
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+</body>
+</html>

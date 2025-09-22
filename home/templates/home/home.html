@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/js/bootstrap/bootstrap.min.css">
+    {% include "home/css.html" %}
+
+</head>
+<body>
+<div class="wrapper-boxed" style="height:100%">
+    <div class="site-wrapper bg">
+        {% include "home/menu.html" %}
+        <h1 class="custom_animate">World Investment Hub</h1>
+        <h6 class="under_header">(W.I.H)</h6>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+
+{% if msg == "login" %}
+    <script>
+        swal("Successful Login!", "Welcome to world investment hub", "success");
+    </script>
+{% elif msg == "registration" %}
+    <script>
+        swal("Successful Registration!", "Welcome to world investment hub", "success");
+    </script>
+{% elif msg == "logout" %}
+    <script>
+        swal("Successful Logout!", "world investment hub", "success");
+    </script>
+{% endif %}
+</body>
+</html>

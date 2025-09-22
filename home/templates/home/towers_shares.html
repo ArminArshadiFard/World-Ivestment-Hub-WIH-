@@ -1,0 +1,192 @@
+{% load operation %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    <link rel="stylesheet" href="{% version_css "handleCounter/app/css/handle-counter.css" %}">
+    <link rel="stylesheet" href="{% version_css "css/loader.css" %}">
+    {% include "home/css.html" %}
+    <style>
+        p {
+            font-size: 26px;
+            line-height: 33px;
+        }
+
+        input[type='radio'] {
+            height: 21px;
+            width: 20px;
+            vertical-align: sub;
+        }
+
+    </style>
+    <style>
+        .handle-counter {
+            overflow: hidden;
+        }
+
+        .handle-counter .counter-minus, .handle-counter .counter-plus, .handle-counter input {
+            float: left;
+            text-align: center;
+        }
+
+        .handle-counter .counter-minus, .handle-counter .counter-plus {
+            text-align: center;
+        }
+
+        .handle-counter input {
+            width: 75px;
+            border-width: 1px;
+            border-left: none;
+            border-right: none;
+        }
+
+        .btn {
+        {#padding: 10px 19px;#} border: 1px solid transparent;
+            color: #fff;
+        }
+
+        .btn:disabled, .btn:disabled:hover {
+            background-color: darkgrey;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            background-color: #78eaff;
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: #4dcdff;
+        }
+
+        .btn-round:hover, .btn-round:focus {
+            background-color: #4dcdff !important;
+        }
+    </style>
+</head>
+<body style="font-family: auto">
+<div id="loader"></div>
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg2">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <section class="sec-bpadding-2" style="margin-top: 100px">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">Price of each share is 100$
+                            </h2>
+                            <div class="ce-title-line align-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br/>
+                        <div class="col-lg-6 col-md-12 margin-bottom"><img src="/static/images/towers.webp" alt=""
+                                                                           class="img-responsive"/></div>
+                        <!--end item-->
+
+
+                        <div class="col-lg-6 col-md-12 padding-left-6">
+                            <p>
+                                Please enter the number of share you want to buy and the total price is shown
+                                bellow.<br>
+
+                            </p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <br/>
+                                <div class="handle-counter" id="handleCounter3">
+                                    <button style="font-size: 27px;padding: 10px 22px;" type="button"
+                                            class="counter-minus btn btn-primary" onclick="DiffPayment(this)">
+                                        -
+                                    </button>
+                                    <input style="font-size: 21px" type="text" value="1" name="number" readonly>
+                                    <button style="font-size: 27px;padding: 10px 19px;" type="button"
+                                            class="counter-plus btn btn-primary" onclick="AddPayment(this)">
+                                        +
+                                    </button>
+                                </div>
+                                <br>
+                                <input type="hidden" name="value" id="value">
+                                <button type="button" class="btn btn-dark" id="payment"
+                                        style="cursor: unset;color: #000;background-color: white;font-size: 26px;padding: 15px 35px 15px 35px">
+                                    Total amount = 100 $
+                                </button>
+                                <button type="submit" class="btn btn-dark btn-round"
+                                        style="color: #000;background-color: #78eaff;font-size: 26px;padding: 15px 35px 15px 35px">
+                                    Register
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+<script src="{% version_js "handleCounter/app/js/handleCounter.js" %}"></script>
+<script>
+    $(function ($) {
+        var options = {
+            minimum: 1,
+            maximize: 10,
+            onChange: valChanged,
+            onMinimum: function (e) {
+                console.log('reached minimum: ' + e)
+            },
+            onMaximize: function (e) {
+                console.log('reached maximize' + e)
+            }
+        }
+        $('#handleCounter').handleCounter(options)
+        $('#handleCounter2').handleCounter(options)
+        $('#handleCounter3').handleCounter({maximize: 100})
+    })
+
+    function valChanged(d) {
+//            console.log(d)
+    }
+</script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<script>
+    function AddPayment(x) {
+        var z = x.parentElement.getElementsByTagName("input")[0].value
+        var a = document.getElementById("payment").innerText = "Pay " + (z * 100 + 100) + " $"
+    }
+</script>
+<script>
+    $(document.getElementsByTagName('form')).submit(function () {
+        document.getElementById("loader").style.display = "block";
+        document.getElementsByTagName("body")[0].style.pointerEvents = "none";
+        document.getElementsByTagName("body")[0].style.opacity = ".6";
+    });
+</script>
+</body>
+</html>

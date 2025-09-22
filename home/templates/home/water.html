@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    {% include "home/css.html" %}
+    <style>
+        p {
+            font-size: 26px;
+            line-height: 33px;
+        }
+
+        input[type='radio'] {
+            height: 21px;
+            width: 20px;
+            vertical-align: sub;
+        }
+    </style>
+</head>
+<body style="font-family: auto">
+
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg2">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <section class="sec-bpadding-2" style="margin-top: 150px">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">Water ring Project
+                            </h2>
+                            <div class="ce-title-line align-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br/>
+                        <div class="col-lg-6 col-md-12 margin-bottom"><img style="width: 100%"
+                                                                           src="/static/images/waterring-min.webp"
+                                                                           alt=""
+                                                                           class="img-responsive"/></div>
+                        <div class="col-lg-6 col-md-12 padding-left-6">
+                            <p>
+
+                                This hub based on their human and environmental doctrine Due to the world's warming due
+                                to the excessive use of fossil fuels.the world's dry countries suggest freshwater rings
+                                by extracting seawater without the need for high energy and based on a completely
+                                environmentally friendly design design, The project can help create and produce marine
+                                products, economic growth and growth in the world's food production, This project can be
+                                implemented with the help of this hub and countries interested in creating this huge
+                                project in their country.
+                            </p>
+                            <form method="post">
+                                {% csrf_token %}
+                                <label style="font-size: 18px">
+                                    <input type="radio" name="confirm" required> &nbsp;&nbsp;I want to buy shares of
+                                    water project
+                                </label>
+                                <br/>
+                                <br/>
+                                <button type="submit" class="btn btn-dark btn-round"
+                                        style="color: #000;background-color: #78eaff;font-size: 21px">
+                                    Next level
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+</body>
+</html>

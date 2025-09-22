@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    {% include "home/css.html" %}
+    <style>
+        p {
+            font-size: 26px;
+            line-height: 33px;
+        }
+    </style>
+</head>
+<body style="font-family: auto">
+
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg2">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <section class="sec-bpadding-2" style="margin-top: 150px">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">PRODUCTION COOPERATION
+                            </h2>
+                            <div class="ce-title-line align-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br/>
+                        <div class="col-lg-6 col-md-12 margin-bottom"><img src="/static/images/gold.webp" alt=""
+                                                                           class="img-responsive"/></div>
+                        <!--end item-->
+
+
+                        <div class="col-lg-6 col-md-12 padding-left-6">
+
+
+                            <p style="color: black">
+                                In this way you allow hub based on hub protocols and reviewed by transaction in one of
+                                the projects and industries,and the annual profit from production is deposited into
+                                the investor account.it should be noted that if the profit of any production or the
+                                loss of production has been invested by hub.it will be investor,if the investor
+                                decides
+                                to move its capital to anther production.
+                            </p>
+                            <p style="font-size: 18px">
+                                This Hub is based on the participation of micro capital in the world on the creation of
+                                large scale and profitable designs in the world,
+                                That will have four hundred million shares of $ 100,which in the first phase is only
+                                one hundred million shares for purchase.
+                                The shares are intended in the production cooperation partnership.
+                                <br>The Shares purchased in the investment
+                                industry and its profit after production will be paid between 20% till 25% percent of
+                                investors.
+                                For example: suppose someone invests $ 10,000 in the aircraft project who that needs to
+                                invest more than $ 80 billion.
+                                Investor can find $ 2500 as a profit after producing the time of production per year.
+                            </p>
+                            <a style="color: #000;background-color: #78eaff;font-size: 21px"
+                               class="btn btn-dark btn-round"
+                               href="{% url "cooparation" %}">Next level
+                            </a>
+                        </div>
+                        <!--end item-->
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top: 100px">
+                <div class="row">
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">SAVING
+                            </h2>
+                            <div class="ce-title-line align-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br/>
+                        <div class="col-lg-6 col-md-12 margin-bottom"><img src="/static/images/dolar-min.webp" alt=""
+                                                                           class="img-responsive"/></div>
+                        <div class="col-lg-6 col-md-12 padding-left-6">
+                            <p style="color: black">
+                                Your capital hub and your annual profit equals 7% of deposit calculation at the end of
+                                each financial year.without the hub letting you spend your money in production or
+                                somewhere else.
+                            </p>
+                            <a style="color: #000;background-color: #78eaff;font-size: 21px"
+                               class="btn btn-dark btn-round"
+                               href="{% url "saving" %}">Next level
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+</body>
+</html>

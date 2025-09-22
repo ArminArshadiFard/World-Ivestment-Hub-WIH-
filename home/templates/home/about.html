@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    {% include "home/css.html" %}
+    <style>
+        p {
+            font-size: 26px;
+            line-height: 33px;
+        }
+    </style>
+</head>
+<body style="font-family: auto">
+
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg2">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <section class="sec-bpadding-2" style="margin-top: 100px">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">Dear friends
+                            </h2>
+                            <div class="ce-title-line align-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br/>
+
+                        <div class="col-md-6 margin-bottom"><img src="/static/images/sea_waves.webp" alt=""
+                                                                 class="img-responsive"/></div>
+                        <!--end item-->
+                        <div class="col-md-6 padding-left-6">
+                            <p>This hub is an unique hub and not
+                                similar to virtual money sites.
+                                This hub is a co -worker and your friend for your capital and
+                                belongs to you.
+                                You will be shareholders of this hub and your comments will
+                                grow hub You and we will move in a set with a goal and with a view.<br>
+                                We have put honesty, brightness and transparency on the tablet In our hub we can all
+                                participate.<br>Here your capital is not spent in no way without your permission. you
+                                are deciding for yourself and your money on your savings hub.<br>
+                                Investors and companies can enter production and the hub protocols.
+                            </p>
+                            <br/>
+                            {#                            <a class="btn btn-dark btn-round uppercase" href="#">Read more</a>#}
+                        </div>
+                        <!--end item-->
+                    </div>
+                    <!--end main col-->
+                </div>
+            </div>
+        </section>
+
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+</body>
+</html>

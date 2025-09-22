@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load operation %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>world investment hub</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/fav-icon.ico">
+    <link rel="stylesheet" href="{% version_css "css/loader.css" %}">
+    {% include "home/css.html" %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+    </script>
+    <style>
+        p {
+            font-size: 26px;
+            line-height: 33px;
+        }
+
+        input[type='radio'] {
+            height: 21px;
+            width: 20px;
+            vertical-align: sub;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+
+    </style>
+</head>
+<body style="font-family: auto">
+<div id="loader"></div>
+<div class="wrapper-boxed" style="height: auto">
+    <div class="site-wrapper bg2">
+
+        {% include "home/menu.html" %}
+        <div class="clearfix"></div>
+
+        <section class="sec-bpadding-2" style="margin-top: 100px">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-md-10 col-centered">
+                        <div class="sec-title-container less-padding-3 text-center">
+                            <h2 class="font-weight-6 less-mar-1 line-height-4">Payment
+                            </h2>
+                            <div class="ce-title-line align-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br/>
+                        <div class="col-lg-6 col-md-12 margin-bottom"
+                             style="background-color: wheat;padding: 40px;border-radius: 5%">
+                            {#                            <img src="/static/images/saving.webp" alt="" class="img-responsive"/>#}
+
+                            <br>
+                            <p>name of share : {{ the_share.get_type_display }}</p>
+                            <br>
+                            <p>
+                                number of share : {{ the_share.number }}
+                            </p>
+                            <br>
+                            <p>
+                                owner : {{ request.user }} ({{ request.user.first_name }})
+                            </p>
+                            <br>
+                            <p>
+                                amount of transaction : {{ the_share.total_price }} tether or dolar
+                            </p>
+                            <br>
+                            <p>
+                                transaction status : <span
+                                    style="color: red;font-weight: bolder;border: 2px solid red;padding: 5px">{% if the_share.payment %}
+                                Done{% else %}Undone{% endif %}</span>
+                            </p>
+                            <br>
+                            <p>
+                                transaction verification : <span
+                                    style="color: red;font-weight: bolder;border: 2px solid red;padding: 5px">{{ the_share.get_valid_display }}</span>
+                            </p>
+                            <br>
+                            <p>
+                                time of purchase : {{ the_share.time }}
+                            </p>
+                        </div>
+                        <!--end item-->
+                        <div class="col-lg-6 col-md-12 padding-left-6">
+                            <p>
+                                To do the transaction use the address wallet in the red box.send only Tether (TRC20) to
+                                this address.sending any other
+                                coins may result in permanent loss.<br>after you do
+                                transaction enter the
+                                transaction id(txid) in the box and push verify.<br>
+                                the verification may takes some hours for<br>
+                                wi-hub.com.when the verification is confirmed by wi-hub.com,the response will be shown
+                                to you.to see the response go to my shares,and select the share to see the details.<br>
+                            </p>
+                            <p>
+                                destination wallet address :</p> <br>
+                            <p><span class="custom--span"
+                                     style="color: red;font-weight: bolder;border: 2px solid red;padding: 5px">0x345aaF5e90AEfF935Ffa1eAc430aAD91fCc3f827</span>
+                            </p>
+                            {#                            <p><span class="custom--span"#}
+                            {#                                     style="color: red;font-weight: bolder;border: 2px solid red;padding: 5px">TRwM3aA3b5a6Jy6rgDRCXiiDFMCYaY6YQs</span>#}
+                            {#                            </p>#}
+
+                            <main>
+                                <div id="qrcode"></div>
+                            </main>
+                            <script>
+                                var qrcode = new QRCode("qrcode",
+                                    "0x345aaF5e90AEfF935Ffa1eAc430aAD91fCc3f827");
+                            </script>
+                            {#                            <script>#}
+                            {#                                var qrcode = new QRCode("qrcode",#}
+                            {#                                    "TRwM3aA3b5a6Jy6rgDRCXiiDFMCYaY6YQs");#}
+                            {#                            </script>#}
+                            <form method="post">
+                                {% csrf_token %}
+                                <br/>
+                                <div class="handle-counter">
+                                    <input class="SavingInput"
+                                           type="text" maxlength="150" placeholder="Enter your txid" required
+                                           name="txid">
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-dark btn-round" id="payment"
+                                        style="color: #000;background-color: #78eaff;font-size: 22px;padding: 14px 20px 14px 20px">
+                                    Verify Transaction
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% include "home/scripts.html" %}
+<script>
+    var hH = document.getElementsByTagName("body")[0].scrollHeight
+    document.getElementsByClassName("wrapper-boxed")[0].style.height = hH + "px"
+</script>
+<script>
+    $(document.getElementsByTagName('form')).submit(function () {
+        document.getElementById("loader").style.display = "block";
+        document.getElementsByTagName("body")[0].style.pointerEvents = "none";
+        document.getElementsByTagName("body")[0].style.opacity = ".6";
+    });
+</script>
+{% if msg == "register_done" %}
+    <script>
+        swal("Your share is registered successfully!", "do transaction do complete the process", "success");
+    </script>
+{% endif %}
+</body>
+</html>
